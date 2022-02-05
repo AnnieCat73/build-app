@@ -3,6 +3,7 @@ import Affiliations from './Affiliations';
 
 class StarWars extends React.Component {
     state = {
+        loadedCharacter: false,
         name: null,
         height: null,
         homeworld: null,
@@ -26,12 +27,25 @@ class StarWars extends React.Component {
     }*/
     getNewCharacter() {
         //console.log("works");
-        this.setState({
-            name: 'Luke',
-            height: 172,
-            homeworld: 'Tattoine',
-            affiliations: ['item1', 'item2']
-        })
+        const randomCharacter = Math.round(Math.random() * 88);
+        const url = `https://swapi.dev/api/people/${randomCharacter}`
+        fetch(url)
+
+            .then(response => response.json())
+            .then(data => {
+                //console.log(data);
+                this.setState({
+                    name: data.name,
+                    height: data.height,
+                    homeworld: data.homeworld,
+                    affiliations: data.affiliations,
+                    loadedCharacter: true
+                })
+
+
+
+            })
+
     }
 
 
@@ -40,21 +54,26 @@ class StarWars extends React.Component {
             return <Affiliations key={i} affiliate={affiliate} />
         })
         return (
+
             <div>
-                <div>
-                    <h1>Name: {this.state.name}</h1>
-                    <p>Height: {this.state.height} cm</p>
-                    <p>Homeworld: {this.state.homeworld}</p>
-                    <ul>
-                        {associates}
-                    </ul>
-                </div>
+                {
+                    this.state.loadedCharacter &&
+                    <div>
+                        <h1>Name: {this.state.name}</h1>
+                        <p>Height: {this.state.height} cm</p>
+                        <p>Homeworld: {this.state.homeworld}</p>
+                        <ul>
+                            {associates}
+                        </ul>
+                    </div>
+                }
                 <button
                     type="button"
                     className="btn"
                     onClick={() => this.getNewCharacter()}>
-                    Get Character</button>
-            </div>
+                    Get Character
+                </button>
+            </div >
 
         )
     }
