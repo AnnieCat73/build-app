@@ -10,8 +10,8 @@ class StarWars extends React.Component {
         affiliations: []
     }
     /*getNewCharacter() {
-        const randomCharacter = Math.round(Math.random() * 88);
-        const url = `https://github.com/akabab/starwars-api/tree/master/api/id/${randomCharacter}`;
+        //const randomCharacter = Math.round(Math.random() * 88);
+        const url = `https://akabab.github.io/starwars-api/api/id/1.json`;
         console.log(url);
         fetch(url)
             .then(response => response.json())
@@ -23,27 +23,22 @@ class StarWars extends React.Component {
                     affiliations: data.affiliations
                 })
             })
-        
+
     }*/
     getNewCharacter() {
         //console.log("works");
-        const randomCharacter = Math.round(Math.random() * 88);
-        const url = `https://swapi.dev/api/people/${randomCharacter}`
+        const randomCharacter = Math.round(Math.random() * 82);
+        const url = `https://swapi.dev/api/people/${randomCharacter}/`;
         fetch(url)
-
             .then(response => response.json())
             .then(data => {
-                //console.log(data);
                 this.setState({
                     name: data.name,
                     height: data.height,
                     homeworld: data.homeworld,
-                    affiliations: data.affiliations,
+                    films: data.films,
                     loadedCharacter: true
                 })
-
-
-
             })
 
     }
