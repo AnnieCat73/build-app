@@ -1,5 +1,5 @@
 import React from 'react';
-import Affiliations from './Affiliations';
+import FilmItemRow from './FilmItemRow';
 
 class StarWars extends React.Component {
     state = {
@@ -7,7 +7,8 @@ class StarWars extends React.Component {
         name: null,
         height: null,
         homeworld: null,
-        affiliations: []
+        films: []
+        //affiliations: []
     }
     /*getNewCharacter() {
         //const randomCharacter = Math.round(Math.random() * 88);
@@ -45,8 +46,9 @@ class StarWars extends React.Component {
 
 
     render() {
-        const associates = this.state.affiliations.map((affiliate, i) => {
-            return <Affiliations key={i} affiliate={affiliate} />
+        const movies = this.state.films.map((film, index) => {
+            return <FilmItemRow key={index} film={film} />
+            // OR return <li>{film}</li>
         })
         return (
 
@@ -56,9 +58,9 @@ class StarWars extends React.Component {
                     <div>
                         <h1>Name: {this.state.name}</h1>
                         <p>Height: {this.state.height} cm</p>
-                        <p>Homeworld: {this.state.homeworld}</p>
+                        <p><a href={this.state.homeworld}> Homeworld: </a></p>
                         <ul>
-                            {associates}
+                            {movies}
                         </ul>
                     </div>
                 }
