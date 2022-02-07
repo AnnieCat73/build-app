@@ -1,5 +1,6 @@
 import React from 'react';
 import FilmItemRow from './FilmItemRow';
+import StarShips from './StarShips';
 
 class StarWars extends React.Component {
     state = {
@@ -7,7 +8,8 @@ class StarWars extends React.Component {
         name: null,
         height: null,
         homeworld: null,
-        films: []
+        films: [],
+        starships: []
         //affiliations: []
     }
     /*getNewCharacter() {
@@ -38,6 +40,7 @@ class StarWars extends React.Component {
                     height: data.height,
                     homeworld: data.homeworld,
                     films: data.films,
+                    starships: data.starships,
                     loadedCharacter: true
                 })
             })
@@ -50,6 +53,9 @@ class StarWars extends React.Component {
             return <FilmItemRow key={index} film={film} />
             // OR return <li>{film}</li>
         })
+        const starship = this.state.starships.map(function (starship, index) {
+            return <StarShips key={index} starship={starship} />
+        })
         return (
 
             <div>
@@ -58,8 +64,9 @@ class StarWars extends React.Component {
                     <div>
                         <h1>Name: {this.state.name}</h1>
                         <p>Height: {this.state.height} cm</p>
-                        <p><a href={this.state.homeworld}> Homeworld: </a></p>
-                        <ul>
+                        <p><a className="li" href={this.state.homeworld}> Homeworld </a></p>
+                        <ul className="list">Starships: {starship}</ul>
+                        <ul className="list">
                             {movies}
                         </ul>
                     </div>
