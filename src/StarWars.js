@@ -1,16 +1,20 @@
 import React from 'react';
 import FilmItemRow from './FilmItemRow';
-import StarShips from './StarShips';
+import VehiclesRow from './VehiclesRow';
 
 class StarWars extends React.Component {
     state = {
         loadedCharacter: false,
         name: null,
+        gender: null,
         height: null,
+        mass: null,
+
         homeworld: null,
         films: [],
-        starships: []
-        //affiliations: []
+        vehicles: []
+        //starships: []
+
     }
     /*getNewCharacter() {
         //const randomCharacter = Math.round(Math.random() * 88);
@@ -37,10 +41,14 @@ class StarWars extends React.Component {
             .then(data => {
                 this.setState({
                     name: data.name,
+                    gender: data.gender,
                     height: data.height,
+                    mass: data.height,
+
                     homeworld: data.homeworld,
                     films: data.films,
-                    starships: data.starships,
+                    vehicles: data.vehicles,
+                    //starships: data.starships,
                     loadedCharacter: true
                 })
             })
@@ -53,8 +61,8 @@ class StarWars extends React.Component {
             return <FilmItemRow key={index} film={film} />
             // OR return <li>{film}</li>
         })
-        const starship = this.state.starships.map(function (starship, index) {
-            return <StarShips key={index} starship={starship} />
+        const motors = this.state.vehicles.map((vehicle, index) => {
+            return <VehiclesRow key={index} vehicle={vehicle} />
         })
         return (
 
@@ -63,9 +71,12 @@ class StarWars extends React.Component {
                     this.state.loadedCharacter &&
                     <div>
                         <h1>Name: {this.state.name}</h1>
+                        <p>Gender: {this.state.gender}</p>
                         <p>Height: {this.state.height} cm</p>
+                        <p>Mass: {this.state.mass}</p>
+
                         <p><a className="li" href={this.state.homeworld}> Homeworld </a></p>
-                        <ul className="list">Starships: {starship}</ul>
+                        <ul className="list">Vehicles: {motors}</ul>
                         <ul className="list">
                             {movies}
                         </ul>
