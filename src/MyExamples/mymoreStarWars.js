@@ -1,18 +1,20 @@
 import React from 'react';
-
+import FilmItemRow from './FilmItemRow';
+import VehiclesRow from './VehiclesRow';
+import Species from './Species';
 
 class StarWars extends React.Component {
     state = {
         loadedCharacter: false,
-        image: null,
         name: null,
         gender: null,
         height: null,
         mass: null,
-        species: null,
+        species: [],
         homeworld: null,
-        affiliations: [],
-        apprentices: []
+        films: [],
+        vehicles: []
+        //starships: []
 
     }
     /*getNewCharacter() {
@@ -31,7 +33,7 @@ class StarWars extends React.Component {
             })
 
     }*/
-    /*getNewCharacter() {
+    getNewCharacter() {
         //console.log("works");
         const randomCharacter = Math.round(Math.random() * 82);
         const url = `https://swapi.dev/api/people/${randomCharacter}/`;
@@ -52,28 +54,36 @@ class StarWars extends React.Component {
                 })
             })
 
-    }*/
+    }
 
 
     render() {
-
+        const movies = this.state.films.map((film, index) => {
+            return <FilmItemRow key={index} film={film} />
+            // OR return <li>{film}</li>
+        })
+        const motors = this.state.vehicles.map((vehicle, index) => {
+            return <VehiclesRow key={index} vehicle={vehicle} />
+        })
+        const typeSpecies = this.state.species.map((specie, index) => {
+            return <Species key={index} specie={specie} />
+        })
         return (
 
             <div>
                 {
                     this.state.loadedCharacter &&
                     <div>
-                        <img src={this.state.image} alt={this.state.image} />
                         <h1>Name: {this.state.name}</h1>
                         <p>Gender: {this.state.gender}</p>
                         <p>Height: {this.state.height} cm</p>
                         <p>Mass: {this.state.mass}</p>
-                        <p>Species: {this.state.species}</p>
+                        <ul className="list">{typeSpecies}</ul>
                         <p><a className="li" href={this.state.homeworld}> Homeworld </a></p>
-                        <ul>{this.state.affiliations}</ul>
-                        <ul>{this.state.apprentices}</ul>
-
-
+                        <ul className="list">Vehicles: {motors}</ul>
+                        <ul className="list">
+                            {movies}
+                        </ul>
                     </div>
                 }
                 <button
