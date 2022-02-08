@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ImageCharacter from './ImageCharacter';
 
 class StarWars extends React.Component {
     state = {
@@ -15,22 +15,29 @@ class StarWars extends React.Component {
         apprentices: []
 
     }
-    /*getNewCharacter() {
+    getNewCharacter() {
         //const randomCharacter = Math.round(Math.random() * 88);
         const url = `https://akabab.github.io/starwars-api/api/id/1.json`;
+
         console.log(url);
         fetch(url)
             .then(response => response.json())
             .then(data => {
                 this.setState({
+                    image: data.image,
                     name: data.name,
+                    gender: data.gender,
                     height: data.height,
+                    mass: data.mass,
+                    species: data.species,
                     homeworld: data.homeworld,
-                    affiliations: data.affiliations
+                    affiliations: data.affiliations,
+                    apprentices: data.apprentices,
+                    loadedCharacter: true
                 })
             })
 
-    }*/
+    }
     /*getNewCharacter() {
         //console.log("works");
         const randomCharacter = Math.round(Math.random() * 82);
@@ -63,7 +70,7 @@ class StarWars extends React.Component {
                 {
                     this.state.loadedCharacter &&
                     <div>
-                        <img src={this.state.image} alt={this.state.image} />
+                        <ImageCharacter image={this.image} />
                         <h1>Name: {this.state.name}</h1>
                         <p>Gender: {this.state.gender}</p>
                         <p>Height: {this.state.height} cm</p>
