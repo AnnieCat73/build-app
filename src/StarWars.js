@@ -1,6 +1,7 @@
 import React from 'react';
 import ImageCharacter from './ImageCharacter';
 import './App.css';
+import Affiliations from './Affiliations';
 
 class StarWars extends React.Component {
     state = {
@@ -64,6 +65,9 @@ class StarWars extends React.Component {
 
 
     render() {
+        const allies = this.state.affiliations.map((affiliate, index) => {
+            return <Affiliations affiliate={affiliate} key={index} />
+        })
 
         return (
 
@@ -72,15 +76,15 @@ class StarWars extends React.Component {
                     this.state.loadedCharacter &&
                     <div className="align">
                         <ImageCharacter image={this.state.image} />
-                        <div>
+                        <div className="char-info">
                             <h1>Name: {this.state.name}</h1>
                             <p>Gender: {this.state.gender}</p>
                             <p>Height: {this.state.height} cm</p>
                             <p>Mass: {this.state.mass}</p>
                             <p>Species: {this.state.species}</p>
-                            <p><a className="li" href={this.state.homeworld}> Homeworld </a></p>
-                            <ul>{this.state.affiliations}</ul>
-                            <ul>{this.state.apprentices}</ul>
+                            <p>Homeworld: {this.state.homeworld}</p>
+                            <ul>Affiliations: {allies}</ul>
+                            <ul>Apprentices: {this.state.apprentices}</ul>
                         </div>
 
 

@@ -5,8 +5,8 @@ class ImageCharacter extends React.Component {
 
     render() {
         return (
-            <div className="image">
-                <img src={this.props.image} alt={this.Character} />
+            <div >
+                <img className="image" src={this.props.image} alt={this.Character} />
             </div>
 
 
