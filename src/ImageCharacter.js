@@ -1,10 +1,14 @@
 import React from "react";
+import './App.css';
 
 class ImageCharacter extends React.Component {
 
     render() {
         return (
-            <img src={this.props.image} alt={this.Character} />
+            <div className="image">
+                <img src={this.props.image} alt={this.Character} />
+            </div>
+
 
         );
 

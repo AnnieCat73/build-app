@@ -24,6 +24,10 @@ header {
     
 }
 
+/*.align {
+    display: flex;
+}*/
+
 .list {
     list-style-type: none;
     text-align: center;
@@ -34,7 +38,13 @@ header {
 
 .li {
     text-decoration: none;
-}    
+} 
+
+.image {
+    display: block;
+    max-width: 5rem;
+    height: 5rem;
+}
 
 .btn {
    background-color: black;

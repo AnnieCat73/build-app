@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageCharacter from './ImageCharacter';
+import './App.css';
 
 class StarWars extends React.Component {
     state = {
@@ -69,16 +70,19 @@ class StarWars extends React.Component {
             <div>
                 {
                     this.state.loadedCharacter &&
-                    <div>
-                        <ImageCharacter image={this.image} />
-                        <h1>Name: {this.state.name}</h1>
-                        <p>Gender: {this.state.gender}</p>
-                        <p>Height: {this.state.height} cm</p>
-                        <p>Mass: {this.state.mass}</p>
-                        <p>Species: {this.state.species}</p>
-                        <p><a className="li" href={this.state.homeworld}> Homeworld </a></p>
-                        <ul>{this.state.affiliations}</ul>
-                        <ul>{this.state.apprentices}</ul>
+                    <div className="align">
+                        <ImageCharacter image={this.state.image} />
+                        <div>
+                            <h1>Name: {this.state.name}</h1>
+                            <p>Gender: {this.state.gender}</p>
+                            <p>Height: {this.state.height} cm</p>
+                            <p>Mass: {this.state.mass}</p>
+                            <p>Species: {this.state.species}</p>
+                            <p><a className="li" href={this.state.homeworld}> Homeworld </a></p>
+                            <ul>{this.state.affiliations}</ul>
+                            <ul>{this.state.apprentices}</ul>
+                        </div>
+
 
 
                     </div>
