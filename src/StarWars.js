@@ -2,6 +2,7 @@ import React from 'react';
 import ImageCharacter from './ImageCharacter';
 import './App.css';
 import Affiliations from './Affiliations';
+import Apprentices from './Apprentices';
 
 class StarWars extends React.Component {
     state = {
@@ -18,8 +19,8 @@ class StarWars extends React.Component {
 
     }
     getNewCharacter() {
-        //const randomCharacter = Math.round(Math.random() * 88);
-        const url = `https://akabab.github.io/starwars-api/api/id/1.json`;
+        const randomCharacter = Math.round(Math.random() * 88);
+        const url = `https://akabab.github.io/starwars-api/api/all.json/${randomCharacter}`;
 
         console.log(url);
         fetch(url)
@@ -69,6 +70,10 @@ class StarWars extends React.Component {
             return <Affiliations affiliate={affiliate} key={index} />
         })
 
+        const students = this.state.apprentices.map((apprentice, index) => {
+            return <Apprentices apprentice={apprentice} key={index} />
+        })
+
         return (
 
             <div>
@@ -84,7 +89,7 @@ class StarWars extends React.Component {
                             <p>Species: {this.state.species}</p>
                             <p>Homeworld: {this.state.homeworld}</p>
                             <ul>Affiliations: {allies}</ul>
-                            <ul>Apprentices: {this.state.apprentices}</ul>
+                            <ul>Apprentices: {students}</ul>
                         </div>
 
 
