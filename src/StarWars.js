@@ -20,7 +20,7 @@ class StarWars extends React.Component {
     }
     getNewCharacter() {
         const randomCharacter = Math.round(Math.random() * 88);
-        const url = `https://akabab.github.io/starwars-api/api/all.json/${randomCharacter}`;
+        const url = `https://akabab.github.io/starwars-api/api/all.json${randomCharacter}`;
 
         console.log(url);
         fetch(url)
@@ -41,7 +41,7 @@ class StarWars extends React.Component {
             })
 
     }
-    /*getNewCharacter() {
+    getNewCharacter() {
         //console.log("works");
         const randomCharacter = Math.round(Math.random() * 82);
         const url = `https://swapi.dev/api/people/${randomCharacter}/`;
@@ -49,6 +49,7 @@ class StarWars extends React.Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({
+                    image: data.image,
                     name: data.name,
                     gender: data.gender,
                     height: data.height,
@@ -62,7 +63,7 @@ class StarWars extends React.Component {
                 })
             })
 
-    }*/
+    }
 
 
     render() {
@@ -82,6 +83,7 @@ class StarWars extends React.Component {
                     <div className="align">
                         <ImageCharacter image={this.state.image} />
                         <div className="char-info">
+                            <img className="image" src={this.state.image} alt={this.state.image.alt}></img>
                             <h1>Name: {this.state.name}</h1>
                             <p>Gender: {this.state.gender}</p>
                             <p>Height: {this.state.height} cm</p>

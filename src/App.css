@@ -1,71 +1,61 @@
 .App {
-    text-align: center;
-    
+  text-align: center;
 }
 
 header {
-    background-color: black;
-    color: yellow;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-    
+  background-color: black;
+  color: yellow;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
 .info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
-    justify-content: center;
-    margin-bottom: 1em;
-    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  justify-content: center;
+  margin-bottom: 1em;
 }
 
 .align {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 1em;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1em;
 }
 
 .char-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    
-
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .list {
-    list-style-type: none;
-    text-align: center;
-    padding: 0;
-    cursor: pointer;
-    
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+  cursor: pointer;
 }
 
 .li {
-    text-decoration: none;
-    
-} 
+  text-decoration: none;
+}
 
 .image {
-    display: block;
-    max-width: 15rem;
-    height: 15rem;
-    margin: 0 auto;
-
+  display: block;
+  max-width: 5rem;
+  height: 5rem;
+  margin: 0 auto;
 }
 
 .btn {
-   background-color: black;
-   border: 1px solid yellow;
-   color: yellow;
-   padding: 20px;
-   font-size: 25px;
-   cursor: pointer;
-   margin-top: 1em;
+  background-color: black;
+  border: 1px solid yellow;
+  color: yellow;
+  padding: 20px;
+  font-size: 25px;
+  cursor: pointer;
+  margin-top: 1em;
 }
