@@ -75,15 +75,17 @@ class StarWars extends React.Component {
             return <Apprentices apprentice={apprentice} key={index} />
         })
 
+       
+
         return (
 
             <div>
                 {
                     this.state.loadedCharacter &&
                     <div className="align">
-                        <ImageCharacter image={this.state.image} />
+                        <ImageCharacter />
                         <div className="char-info">
-                            <img className="image" src={this.state.image} alt={this.state.image.alt}></img>
+                            
                             <h1>Name: {this.state.name}</h1>
                             <p>Gender: {this.state.gender}</p>
                             <p>Height: {this.state.height} cm</p>

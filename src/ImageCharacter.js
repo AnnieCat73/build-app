@@ -2,7 +2,7 @@ import React from "react";
 import './App.css';
 
 class ImageCharacter extends React.Component {
-
+    
     render() {
         return (
             <div >
