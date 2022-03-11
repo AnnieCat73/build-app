@@ -4,6 +4,17 @@ import { useState } from 'react';
 function NewStarWars() {
 
   //const [loadedCharacter, setLoadedCharacter] = useState(true);
+  const [data, setData] = useState(null);
+
+  const getNewCharacter = () => {
+    const randomNumber = Math.round(Math.random()* 88)
+    const url = `https://akabab.github.io/starwars-api/api/all.json/${randomNumber}`;
+    fetch(url)
+      .then(response => response.json())
+      .then(setData)
+      .catch(console.error)
+  }
+  if(data)
   return (
     <>
       <div className="main">
@@ -18,7 +29,7 @@ function NewStarWars() {
             <ul>Masters:</ul>
             <ul>Apprentices:</ul>
           </div>
-          <button className="btn">Get Character</button>
+          <button className="btn" onClick={getNewCharacter}>Get Character</button>
         </div>
       </div>
     </>
