@@ -71,6 +71,12 @@ header {
   text-align: left;
 }
 
+.text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
 .info {
   display: flex;
   flex-direction: column;
@@ -105,8 +111,9 @@ header {
 }
 
 .image {
-  width: 20rem;
-  height: 20rem;
+  width: 30rem;
+  height: 30rem;
+  border-radius: 5px;
 }
 
 .btn {
