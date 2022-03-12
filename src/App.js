@@ -1,4 +1,5 @@
 import './App.css';
+import MiaStarWars from './MiaStarWars';
 import NewStarWars from './NewStarWars';
 
 
@@ -8,7 +9,7 @@ const App = () => (
             <h1>Mia's Star Wars App</h1>
         </header>
         <div>
-            <NewStarWars />
+            <MiaStarWars />
         </div>
 
     </div>

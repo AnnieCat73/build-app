@@ -18,11 +18,11 @@ function NewStarWars() {
   return (
     <>
       <div className="main">
-        <img className="image" src={'https://vignette.wikia.nocookie.net/starwars/images/2/20/LukeTLJ.jpg'}></img>
+        <img className="image" src={data.img} alt={"Character avatar"}/>
         <div className="text-content">
           <div className="info">
-            <h3>Name: </h3>
-            <p>Height: </p>
+            <h3>Name: {data.name}</h3>
+            <p>Height: {data.height}</p>
             <p>Homeworld: </p>
             <p>Species: </p>
             <ul>Affiliations:</ul>
